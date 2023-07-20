@@ -4,7 +4,6 @@ import pywhatkit
 import datetime
 import wikipedia
 import pyjokes
-import threading
 
 
 
@@ -17,7 +16,7 @@ listener = sr.Recognizer()
 engine= pyttsx3.init()
 voices=engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
-talk("Hi. I am your virtual assistant. What can I do for you?")
+talk("Hi. I Alexis am your virtual assistant. What can I do for you?")
 
 
 
@@ -33,7 +32,7 @@ def main():
             # voice to text
             command = listener.recognize_google(voice)
             command = command.lower()
-            if "alexa" in command:
+            if "alexis" in command:
                 engine.runAndWait()
                 command = command.replace('alexa', '').replace('hi', '').replace('hello', '').replace("hey",'').strip()
                 print(command)
@@ -64,6 +63,8 @@ def run_va(command):
             joke=pyjokes.get_joke(category='neutral')
         print(joke)
         talk(joke)
+    else:
+        talk("Sorry, I have not been programmed for that yet.")
 
 
   
