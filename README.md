@@ -18,17 +18,17 @@ Alexis will bid you a warm farewell with a positive message.
 
 # Example commands
   "Alexis what's the time?"
-- Alexis will tell you the time.
+ Alexis will tell you the time.
 "Alexis who is George Washington?"
-- Alexis will tell you a summary of who he is.
+ Alexis will tell you a summary of who he is.
 "Alexis, why is 2+2=4?"
-- Alexis will use OpenAI API to give you an adequate explanation.
+Alexis will use OpenAI API to give you an adequate explanation.
 "Alexis play taylor swift."
-- Alexis will open Taylor Swift's  youtube video on your browser.
+ Alexis will open Taylor Swift's  youtube video on your browser.
 "Alexis write me an email thanking my new coworker for helping me adapt in my new job."
-- Alexis will use OpenAI API to come up with a letter.
+ Alexis will use OpenAI API to come up with a letter.
 "Alexis open a calculator."
-- Alexis will open a desmos calculator in your web-browser.
+ Alexis will open a desmos calculator in your web-browser.
 
 
 # Concept Video
