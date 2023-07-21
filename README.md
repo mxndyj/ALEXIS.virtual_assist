@@ -12,7 +12,7 @@ Just say 'Alexis' followed your command, and she'll be ready to help you.
 Whether you need a quick joke to brighten your day or an informative explanation, 
 Alexis is at your service.
 
-Her intuitive design makes it easy to interact with her through voice commands. 
+It's easy to interact with her through voice commands. 
 If you ever want to stop interacting, say 'stop,' 'exit,' or 'bye,' and 
 Alexis will bid you a warm farewell with a positive message.
 
