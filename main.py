@@ -5,8 +5,12 @@ import datetime
 import wikipedia
 import pyjokes
 import webbrowser
+import openai
+from api_key import key
 
+openai.api_key=key
 
+completion=openai.Completion()
 def talk(txt):
     engine.say(txt)
     engine.runAndWait()
@@ -44,6 +48,19 @@ def open_site(arg):
         if site[0] in arg:
             talk ("opening"+ site[0])
             webbrowser.open(site[1])
+def ai(arg):
+    try:
+        prompt=arg
+        reply=completion.create(prompt=prompt,engine="text-davinci-002")
+        answer=reply.choices[0].text.strip()
+        print(answer)
+        talk(answer)
+    except Exception as e:
+        print("Error with AI: ", e)
+        talk("Sorry, there was an error processing your request.")
+
+
+
 
 def default_response():
     talk("Sorry, I have not been programmed for that task yet.")
@@ -57,6 +74,7 @@ commands = {
     "what's": get_wikipedia_summary,
     "joke": get_joke,
     "open":open_site,
+    "use ai":ai,
 }
 
 def main():
