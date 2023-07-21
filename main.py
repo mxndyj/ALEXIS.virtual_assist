@@ -6,9 +6,9 @@ import wikipedia
 import pyjokes
 import webbrowser
 import openai
-from api_key import key
 
-openai.api_key=key
+#  enter your open ai api key
+openai.api_key="api_key"
 
 completion=openai.Completion()
 def talk(txt):
@@ -51,7 +51,7 @@ def open_site(arg):
 def ai(arg):
     try:
         prompt=arg
-        reply=completion.create(prompt=prompt,engine="text-davinci-002")
+        reply=completion.create(prompt=prompt,engine="text-davinci-003",stop=None, max_tokens = 1024)
         answer=reply.choices[0].text.strip()
         print(answer)
         talk(answer)
