@@ -10,44 +10,54 @@ import openai
 #  enter your open ai api key
 openai.api_key="api_key"
 
+# Initialize the OpenAI completion engine
 completion=openai.Completion()
+
+# Function to make Alexis speak the given text
 def talk(txt):
     engine.say(txt)
     engine.runAndWait()
 
-# voice recognizer
+# Initialize the voice recognizer and text-to-speech engine
 listener = sr.Recognizer()
-# initializing text to speech
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
+# greeting the user
 talk("Hi. I am Alexis your virtual assistant. What can I do for you?")
 
+# Function to play a song on YouTube based on the given query
 def play_song(args):
     talk('playing ' + args)
     pywhatkit.playonyt(args)
 
+# Function to get and speak the current time
 def get_time(args):
     time = datetime.datetime.now().strftime("%I:%M %p")
     print(time)
     talk("It is " + time)
 
+# Function to get a Wikipedia summary for a given query
 def get_wikipedia_summary(args):
     info = wikipedia.summary(args, 2)
     print(info)
     talk(info)
 
+# Function to get a random joke and speak it
 def get_joke(args):
     joke = pyjokes.get_joke()
     print(joke)
     talk(joke)
 
+# Function to open a website based on the given query
 def open_site(arg):
     sites=[("google", 'https://www.google.com/'),('wikipedia','https://www.wikipedia.org/'),('calculator',"https://www.desmos.com/scientific")]
     for site in sites:
         if site[0] in arg:
             talk ("opening"+ site[0])
             webbrowser.open(site[1])
+
+# Function to use OpenAI API to generate a response for a given query
 def ai(arg):
     try:
         prompt=arg
@@ -59,6 +69,7 @@ def ai(arg):
         print("Error with AI: ", e)
         talk("Sorry, there was an error processing your request.")
 
+# Function to stop the program gracefully when the user commands "stop," "exit," or "bye"
 def stop_program(args):
     global keep_listening
     keep_listening = False
@@ -68,6 +79,7 @@ def stop_program(args):
 def default_response():
     talk("Sorry, I have not been programmed for that task yet.")
 
+#  Dictonary of tuples to map user commands to corresponding functions
 commands = {
     "play": play_song,
     "time": get_time,
@@ -79,9 +91,11 @@ commands = {
     "open":open_site,
     "use ai":ai,
     "stop": stop_program,
-    "exit": stop_program
+    "exit": stop_program,
+    "bye":stop_program
 }
 
+# Main function to handle user voice input and execute the corresponding commands
 def main():
     global keep_listening
     keep_listening = True
