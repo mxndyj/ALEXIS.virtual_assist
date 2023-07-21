@@ -39,7 +39,7 @@ def get_joke(args):
     talk(joke)
 
 def open_site(arg):
-    sites=[["google", 'https://www.google.com/']['wikipedia','https://www.wikipedia.org/']['calculator',"https://www.desmos.com/scientific"]]
+    sites=[("google", 'https://www.google.com/'),('wikipedia','https://www.wikipedia.org/'),('calculator',"https://www.desmos.com/scientific")]
     for site in sites:
         if site[0] in arg:
             talk ("opening"+ site[0])
