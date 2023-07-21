@@ -3,6 +3,7 @@ Meet Alexis your new virtual voice assistant! Alexis is a powerful and intellige
 AI-powered assistant designed to help you with a wide range of tasks. With a friendly 
 and natural voice, Alexis is ready to answer your questions, play your favorite songs, 
 tell you jokes, provide answers to your questions, and even generate in-depth responses using the OpenAI API.
+As of today, Alexis is a command-line application.
 
 
 # Features
