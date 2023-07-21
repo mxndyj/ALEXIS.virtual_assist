@@ -17,7 +17,7 @@ If you ever want to stop interacting, say 'stop,' 'exit,' or 'bye,' and
 Alexis will bid you a warm farewell with a positive message.
 
 # Example commands
-"Alexis what's the time?"
+  "Alexis what's the time?"
 - Alexis will tell you the time.
 "Alexis who is George Washington?"
 - Alexis will tell you a summary of who he is.
