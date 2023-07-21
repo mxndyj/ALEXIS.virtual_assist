@@ -59,7 +59,10 @@ def ai(arg):
         print("Error with AI: ", e)
         talk("Sorry, there was an error processing your request.")
 
-
+def stop_program(args):
+    global keep_listening
+    keep_listening = False
+    talk("Goodbye! Have a great day.")
 
 
 def default_response():
@@ -75,15 +78,18 @@ commands = {
     "joke": get_joke,
     "open":open_site,
     "use ai":ai,
+    "stop": stop_program,
+    "exit": stop_program
 }
 
 def main():
+    global keep_listening
     keep_listening = True
     while keep_listening:
         try:
             with sr.Microphone() as source:
                 print("listening..")
-                voice = listener.listen(source, timeout=200)
+                voice = listener.listen(source, timeout=400)
                 # Voice to text
                 command = listener.recognize_google(voice)
                 command = command.lower()
@@ -94,6 +100,7 @@ def main():
                     run_va(command)
                 if "stop" in command or "exit" in command or "bye" in command:
                     keep_listening = False
+                    talk("Goodbye! Have a great day.")
         except ValueError:
             print("No audio input detected.")
             continue
